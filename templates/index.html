@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <p v-if="isLoading">Loading</p>
+    <div class="container">
+      <h2 class="text-center">Satın alınanlar ({{cart.length}})</h2>
+  <div class="row border border-primary cart">
+    <div class="col-sm-4 item" v-for="(item, index) in cart">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" v-bind:src="item.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">{{item.desc}}</p>
+          <p class="text-lowercase" v-if="item.isAvailable">Lowercased text.</p>
+          <p class="text-lowercase" v-if="item.isEligible">Lowercased text.</p>
+          <a v-bind:href="item.url" class="btn btn-primary col-md-4">a</a>
+          <a href="#" class="btn btn-primary col-md-4" v-on:click="removeFromCart(index)">sil</a>
+          <a href="#" class="btn btn-primary col-md-4" v-on:click="savedLater(index)">saved</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Kayededilenler ({{saved.length}} eleman)</h2>
+  <div class="row border border-primary cart">
+    <div class="col-sm-4 item" v-for="item in saved">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" v-bind:src="item.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">{{item.desc}}</p>
+          <p class="text-lowercase" v-if="item.isAvailable">Lowercased text.</p>
+          <p class="text-lowercase" v-if="item.isEligible">Lowercased text.</p>
+          <a v-bind:href="item.url" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -25,14 +25,6 @@ return function (App $app) {
     return $this->renderer->render($response, 'index.phtml', ["name" => "Welcome to Trinity Tuts demo Api"]);
   });
 
-  $app->get("/secure",  function ($request, $response, $args) {
-
-    $data = ["status" => 1, 'msg' => "This route is secure!"];
-
-    return $response->withStatus(200)
-    ->withHeader("Content-Type", "application/json")
-    ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-  });
 
 
   $app->get("/not-secure",  function ($request, $response, $args) {
@@ -80,7 +72,23 @@ return function (App $app) {
     ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
   });
 
+//TokenAlan Taraf
+$app->group('/api/v1', function(\Slim\App $app) {
 
+    $app->get('/user',function(Request $request, Response $response, array $args) {
+        print_r($request->getAttribute('decoded_token_data'));
+    });
+
+    $app->get("/secure",  function ($request, $response, $args) {
+
+      $data = ["status" => 1, 'msg' => "This route is secure!"];
+
+      return $response->withStatus(200)
+      ->withHeader("Content-Type", "application/json")
+      ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+    });
+
+});
 
 
 };

@@ -1,0 +1,30 @@
+{
+  "cart" : [
+    {
+    "url": "url.html",
+    "image": "https://picsum.photos/286/180",
+    "name" : "Card title1",
+    "desc" : "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "isAvailable": true,
+    "isEligible": true
+  },
+  {
+  "url": "url.html",
+  "image": "https://picsum.photos/286/180",
+  "name" : "Card title",
+  "desc" : "Some quick example text to build on the card title and make up the bulk of the card's content.",
+  "isAvailable": true,
+  "isEligible": false
+}
+],
+"saved": [
+  {
+    "url": "url.html",
+    "image": "https://picsum.photos/286/180",
+    "name" : "Card title",
+    "desc" : "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    "isAvailable": true,
+    "isEligible": true
+  }
+]
+}
